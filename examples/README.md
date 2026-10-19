@@ -2,13 +2,12 @@
 
 The `ballerinax/avaza` connector provides practical examples illustrating usage in various scenarios.
 
-[//]: # (TODO: Add examples)
-1. 
-2. 
+1. [Project kickoff setup](https://github.com/ballerina-platform/module-ballerinax-avaza/tree/main/examples/project_kickoff_setup) - Create a project for an existing customer, add a kickoff section and task, and confirm the result.
+2. [Weekly timesheet summary](https://github.com/ballerina-platform/module-ballerinax-avaza/tree/main/examples/weekly_timesheet_summary) - Total the hours logged per project over a date range.
 
 ## Prerequisites
 
-[//]: # (TODO: Add prerequisites)
+Generate an Avaza access token (a personal access token or an OAuth 2.0 access token) and provide it as `accessToken` in a `Config.toml` file inside the example directory.
 
 ## Running an example
 
