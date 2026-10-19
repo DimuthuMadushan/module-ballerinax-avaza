@@ -4,7 +4,7 @@ This example pages through every timesheet entry between two dates and prints th
 
 ## Prerequisites
 
-- Ballerina Swan Lake 2201.x or later
+- Ballerina Swan Lake 2201.12.0 or later
 - An Avaza access token with the `read_timesheets` scope
 - Create a `Config.toml` in this directory:
   ```toml

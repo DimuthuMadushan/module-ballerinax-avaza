@@ -67,14 +67,20 @@ function testCreateCompany() returns error? {
 function testListContacts() returns error? {
     ContactList result = check avaza->listContacts(pageSize = 20);
     CompanyContact[] contacts = result.contacts ?: [];
-    test:assertTrue(contacts.length() > 0);
+    // A live account may have no contacts; the call returning a typed list is the check there.
+    if !isLiveServer {
+        test:assertTrue(contacts.length() > 0);
+    }
 }
 
 @test:Config {groups: ["live_tests", "mock_tests"]}
 function testListInvoices() returns error? {
     InvoiceList result = check avaza->listInvoices(pageSize = 20);
     Invoice[] invoices = result.invoices ?: [];
-    test:assertTrue(invoices.length() > 0);
+    // A live account may have no invoices; the call returning a typed list is the check there.
+    if !isLiveServer {
+        test:assertTrue(invoices.length() > 0);
+    }
 }
 
 @test:Config {groups: ["live_tests", "mock_tests"]}
@@ -216,7 +222,10 @@ function testDeleteTimesheet() returns error? {
 function testListExpenses() returns error? {
     ExpenseList result = check avaza->listExpenses(pageSize = 20);
     ExpenseDetails[] expenses = result.expenses ?: [];
-    test:assertTrue(expenses.length() > 0);
+    // A live account may have no expenses; the call returning a typed list is the check there.
+    if !isLiveServer {
+        test:assertTrue(expenses.length() > 0);
+    }
 }
 
 @test:Config {groups: ["mock_tests"]}
@@ -245,5 +254,8 @@ function testListUserProfiles() returns error? {
 function testListWebhooks() returns error? {
     WebhookList result = check avaza->listWebhooks();
     WebhookDetails[] webhooks = result.webhooks ?: [];
-    test:assertTrue(webhooks.length() > 0);
+    // A live account may have no webhooks; the call returning a typed list is the check there.
+    if !isLiveServer {
+        test:assertTrue(webhooks.length() > 0);
+    }
 }
